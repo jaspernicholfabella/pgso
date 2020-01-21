@@ -1,0 +1,10 @@
+<!DOCTYPE RCC>
+<RCC version = "1.0">
+<qresource>
+    <file>icons/SORSOGON.png</file>
+    <file>icons/next-page.png</file>
+    <file>icons/download.png</file>
+    <file>icons/logo_1.png</file>
+    <file>icons/logo_2.png</file>
+</qresource>
+</RCC>
