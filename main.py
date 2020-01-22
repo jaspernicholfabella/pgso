@@ -134,6 +134,9 @@ class Item_Dialogue(QDialog,item_ui):
             table.setItem(row_position, 2, QTableWidgetItem(str(val[2])))
             table.resizeColumnsToContents()
         conn.close()
+    
+
+
 
 class Accounts_Dialogue(QDialog,accounts_ui):
     edit_id = 0
@@ -465,6 +468,8 @@ class MainApp(QMainWindow,ui):
         self.price_list_add.clicked.connect(self.price_list_add_action)
         self.price_list_edit.clicked.connect(lambda : self.price_list_edit_action(self.price_list_table))
         self.price_list_delete.clicked.connect(lambda : self.price_list_delete_action(self.price_list_table))
+        self.price_list_search.textChanged.connect(self.price_list_search_action)
+
 
     def refresh_application(self):
         self.menu_widget.setVisible(False)
@@ -978,6 +983,33 @@ class MainApp(QMainWindow,ui):
             table.resizeColumnsToContents()
         conn.close()
 
+    def price_list_search_action(self):
+        global price_list_table
+        price_list_table.setRowCount(0)
+        engine = sqc.Database().engine
+        pgso_price_list = sqc.Database().pgso_price_list
+        conn= engine.connect()
+        #admin_table
+        s = pgso_price_list.select().order_by(asc(pgso_price_list.c.item))
+        s_value = conn.execute(s)
+        table = price_list_table
+        if self.price_list_search.text() == '':
+            for val in s_value:
+                row_position = table.rowCount()
+                table.insertRow(row_position)
+                table.setItem(row_position, 0, QTableWidgetItem(str(val[0])))
+                table.setItem(row_position, 1, QTableWidgetItem(str(val[1])))
+                table.setItem(row_position, 2, QTableWidgetItem(str(val[2])))
+                table.resizeColumnsToContents()
+        else:
+            for val in s_value:
+                if str(self.price_list_search.text()).lower() in val[1].lower():
+                    row_position = table.rowCount()
+                    table.insertRow(row_position)
+                    table.setItem(row_position, 0, QTableWidgetItem(str(val[0])))
+                    table.setItem(row_position, 1, QTableWidgetItem(str(val[1])))
+                    table.setItem(row_position, 2, QTableWidgetItem(str(val[2])))
+                    table.resizeColumnsToContents()
     def menu_price_list_action(self):
         self.tabWidget.setCurrentIndex(7)
         self.show_price_list()

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>876</width>
-    <height>599</height>
+    <height>597</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -183,7 +183,7 @@ background-color: rgb(255, 255, 255);
 </string>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>7</number>
       </property>
       <widget class="QWidget" name="tab_2">
        <attribute name="title">
@@ -657,21 +657,6 @@ border-radius:  2</string>
            </size>
           </property>
           <layout class="QGridLayout" name="gridLayout_4">
-           <item row="2" column="0">
-            <widget class="QListWidget" name="pr_list">
-             <property name="styleSheet">
-              <string notr="true">
-border : 1 solid gray;
-border-radius:  2;
-font: 25 11pt &quot;Segoe UI Light&quot;;</string>
-             </property>
-             <item>
-              <property name="text">
-               <string>10/12/2019</string>
-              </property>
-             </item>
-            </widget>
-           </item>
            <item row="0" column="0">
             <widget class="QWidget" name="widget_22" native="true">
              <property name="minimumSize">
@@ -707,6 +692,21 @@ font: 25 11pt &quot;Segoe UI Light&quot;;</string>
                </widget>
               </item>
              </layout>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QListWidget" name="pr_list">
+             <property name="styleSheet">
+              <string notr="true">
+border : 1 solid gray;
+border-radius:  2;
+font: 25 11pt &quot;Segoe UI Light&quot;;</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>10/12/2019</string>
+              </property>
+             </item>
             </widget>
            </item>
            <item row="1" column="0">
@@ -1864,6 +1864,39 @@ font: 25 14pt &quot;Segoe UI Light&quot;;</string>
           </property>
           <property name="text">
            <string>Price List</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="price_list_search">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>300</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Segoe UI Light</family>
+            <pointsize>16</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(0, 0, 0);
+selection-background-color: rgb(129, 129, 129);
+background-color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+          </property>
+          <property name="placeholderText">
+           <string>   Search</string>
           </property>
          </widget>
         </item>
